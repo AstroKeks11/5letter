@@ -20,7 +20,8 @@ def main():
                     word1 = word.split('\x02')
                     #print(word1)
                     word2 = word1[0] + word1[1]
-                    file2.write(word2 + '\n')
+                    if len(word2) == 5:
+                        file2.write(word2 + '\n')
            
     file1.close()
     file2.close()
