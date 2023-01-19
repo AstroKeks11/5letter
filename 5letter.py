@@ -1,6 +1,7 @@
 import config
 import logging
 from aiogram import Bot, Dispatcher, executor, types
+from aiogram.dispatcher.filters import Text
 import markup as nav
 import teleScript as script
 
@@ -8,6 +9,8 @@ logging.basicConfig(level=logging.INFO)
 
 bot = Bot(token =config.TOKEN)
 dp = Dispatcher(bot)
+
+items = script.start()
 
 
 '''user'''
@@ -25,15 +28,15 @@ async def command_start(message: types.Message):
 
 @dp.message_handler()
 async def bot_message(message: types.Message):
-    if message.text == 'Знаю желтую букву':
-        await bot.send_message(message.from_user.id, 'Введите букву')
-
-
-    elif message.text == 'Начать новое слово':
-        await bot.send_message(message.from_user.id, 'Новое слово', reply_markup = nav.letterMenu)
+    if message.text == 'Начать новое слово':
+        await bot.send_message(message.from_user.id, 'Новое слово', reply_markup = nav.functionMenu)
 
         items = script.start()
         await bot.send_message(message.from_user.id, items)
+
+
+    elif message.text == 'Знаю желтую букву':
+        await bot.send_message(message.from_user.id, 'Введите букву')
     
 
     elif message.text == 'Главное меню':
@@ -43,8 +46,27 @@ async def bot_message(message: types.Message):
     elif message.text == 'Инфо':
         await bot.send_message(message.from_user.id, 'Бот для помощи в игре "5БУКВ". \nДля старт введите в самой игре любое подходящее слово, а затем начните использовать подсказки бота во вкладке "Новое слово"')
 
-    elif message.text == 'Знаю желтую букву':
-        await bot.send_message(message.from_user.id, 'Введите букву')
+    elif message.text == 'Знаю белую букву':
+        await message.answer('Выберите букву', reply_markup=nav.lettersMenu)
+        await message.answer('Выберите место', reply_markup=nav.placeMenu)
+        white()
+
+
+        
+def white():
+    @dp.callback_query_handler(Text(startswith='letter_'))
+    async def func(callback: types.CallbackQuery):
+        letter = callback.data[7]
+        await callback.message.answer(letter)
+
+
+    @dp.callback_query_handler(Text(startswith='pl_'))
+    async def func(callback: types.CallbackQuery):
+        place = callback.data[3]
+        await callback.message.answer(place)
+
+
+    
 
 
 
@@ -52,7 +74,6 @@ async def bot_message(message: types.Message):
 
 '''back'''
 
-#async def yellow():
 
 
 

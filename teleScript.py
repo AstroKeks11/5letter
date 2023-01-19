@@ -7,7 +7,7 @@ def start():
     items = words
     return items
 
-
+'''
 def variants():
     d = str(input('Какую букву ты знаешь? Введи желтая, белая, серая или серые: '))
     if d == 'желтая':
@@ -18,9 +18,9 @@ def variants():
         white()
     elif d == 'серые':
         greys()
+'''
 
-
-def yellow():
+def yellow(items):
         
     letter = input('Введите букву: ')
     letter = letter.upper()
@@ -31,23 +31,24 @@ def yellow():
                 index = items.index(item)
                 items[index] = ''
     print(items)
-    variants()
+
             
         
-def white():
-    letter = input('Введите букву: ')
+def white(items,letter,place):
+    #letter = input('Введите букву: ')
     letter = letter.upper()
-    place = int(input('Введите номер буквы где она не стоит: '))
+    #place = int(input('Введите номер буквы где она не стоит: '))
     for item in items:
         if item != '':
             if item[place-1] == letter:
                 index = items.index(item)
                 items[index] = ''
-    print(items)  
-    variants()
+    #print(items)  
+    return items
 
 
-def grey():
+
+def grey(items):
     letter = str(input('Введите букву: '))
     letter = letter.upper()
     for item in items:
@@ -56,9 +57,9 @@ def grey():
                 index = items.index(item)
                 items[index] = ''
     print(items)
-    variants()
 
-def greys():
+
+def greys(items):
     letter = str(input('Введите буквы через пробел: '))
     letters = letter.split(' ')
     for i in letters:
@@ -70,7 +71,7 @@ def greys():
                         index = items.index(item)
                         items[index] = ''                           
     print(items)
-    variants()
+
         
 
 
