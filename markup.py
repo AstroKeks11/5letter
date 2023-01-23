@@ -31,3 +31,7 @@ thirdPl = InlineKeyboardButton(text = '3', callback_data= 'pl_3')
 forthPl = InlineKeyboardButton(text = '4', callback_data= 'pl_4')
 fifthPl = InlineKeyboardButton(text = '5', callback_data= 'pl_5')
 placeMenu = InlineKeyboardMarkup(row_width=1).add(firstPl, secondPl, thirdPl, forthPl, fifthPl)
+
+#cycle
+cBtn = InlineKeyboardButton(text='Просеять',callback_data='cycle')
+cMenu = InlineKeyboardMarkup(row_width=1).add(cBtn)

@@ -20,17 +20,18 @@ def variants():
         greys()
 '''
 
-def yellow(items):
+def yellow(items,letter,place):
         
-    letter = input('Введите букву: ')
+    #letter = input('Введите букву: ')
     letter = letter.upper()
-    place = int(input('Введите номер буквы: '))
+    #place = int(input('Введите номер буквы: '))
     for item in items:
         if item != '':
             if item[place-1] != letter:
                 index = items.index(item)
                 items[index] = ''
-    print(items)
+    #print(items)
+    return items
 
             
         
