@@ -7,6 +7,7 @@ mainBtn = KeyboardButton('Главное меню')
 
 startBtn = KeyboardButton('Начать новое слово')
 infoBtn = KeyboardButton('Инфо')
+
 mainMenu = ReplyKeyboardMarkup(resize_keyboard=True).add(startBtn, infoBtn)
 
 #function

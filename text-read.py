@@ -1,7 +1,7 @@
 def main():
     #file1 = open('Словарь-тест.txt', encoding="utf8")
-    file1 = open('Словарь.txt', encoding="utf8")
-    file2 = open('noun.txt', 'a')
+    file1 = open('копия.txt', encoding="utf8")
+    file2 = open('noun3.txt', 'a')
 
     strings = file1.readlines()
 

@@ -30,8 +30,14 @@ def yellow(items,letter,place):
             if item[place-1] != letter:
                 index = items.index(item)
                 items[index] = ''
+    txt = ''
+    for i in items:
+            if i != '':
+               i = i.replace('\n', '') 
+               txt = txt +i
+               txt = txt+ ', '
     #print(items)
-    return items
+    return txt
 
             
         
@@ -44,34 +50,55 @@ def white(items,letter,place):
             if item[place-1] == letter:
                 index = items.index(item)
                 items[index] = ''
+
+    txt = ''
+    for i in items:
+            if i != '':
+               i = i.replace('\n', '') 
+               txt = txt +i
+               txt = txt+ ', '
     #print(items)  
-    return items
+    return txt
 
 
 
-def grey(items):
-    letter = str(input('Введите букву: '))
+def grey(items, letter):
+    #letter = str(input('Введите букву: '))
     letter = letter.upper()
     for item in items:
         if item != '':
             if item.find(letter) != -1:
                 index = items.index(item)
                 items[index] = ''
-    print(items)
+    txt = ''
+    for i in items:
+            if i != '':
+               i = i.replace('\n', '') 
+               txt = txt +i
+               txt = txt+ ', '
+    #print(items)
+    return txt
 
 
-def greys(items):
-    letter = str(input('Введите буквы через пробел: '))
-    letters = letter.split(' ')
+def greys(items,letters):
+    #letter = str(input('Введите буквы через пробел: '))
+    letters = letters.split(' ')
     for i in letters:
         i = i.upper()
-        print(i)
+        #print(i)
         for item in items:
                 if item != '':
                     if item.find(i) != -1:
                         index = items.index(item)
-                        items[index] = ''                           
-    print(items)
+                        items[index] = ''  
+    txt = ''
+    for i in items:
+            if i != '':
+               i = i.replace('\n', '') 
+               txt = txt +i
+               txt = txt+ ', '                         
+    #print(items)
+    return txt
 
         
 

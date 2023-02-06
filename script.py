@@ -1,5 +1,6 @@
 def main():
-    file = open('noun.txt', 'r')
+    #file = open('noun.txt', 'r')
+    file = open('noun-r.txt', 'r')
     file2 = open('answers.txt', 'w')
 
     words = file.readlines()
@@ -27,7 +28,14 @@ def main():
                 if item[place-1] != letter:
                     index = items.index(item)
                     items[index] = ''
-        print(items)
+        txt = ''
+        for i in items:
+            if i != '':
+               i = i.replace('\n', '') 
+               txt = txt +i
+               txt = txt+ ', '
+        print(txt) 
+        #print(items)
         #answer = input('Продолжить? (Да или Нет): ')
         #if answer == 'Да':
             #variants()
@@ -43,6 +51,12 @@ def main():
                 if item[place-1] == letter:
                     index = items.index(item)
                     items[index] = ''
+        txt = ''
+        for i in items:
+            if i != '':
+               txt = txt +i
+               txt = txt+ ', '
+        print(txt) 
         print(items)
         #answer = input('Продолжить? (Да или Нет): ')
         #if answer == 'Да':
@@ -77,6 +91,21 @@ def main():
                             items[index] = ''                           
         print(items)
         variants()
+
+    def yellow1():
+        letter = input('Введите букву: ')
+        letter = letter.upper()
+        place = int(input('Введите номер буквы: '))
+        x = 0
+        for item in items:
+            if item[place-1] != letter:
+                    items.pop(x)
+            elif item[place-1] == letter:
+                x += 1
+        print(items)
+        variants()
+
+
         
 
 
